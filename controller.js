@@ -35,6 +35,22 @@ var Controller = {
 			console.log('Listagem ', data);
 			msg= 'Listagem '+ data;
 		}
+		res.render('list', { title: 'Listagem de cervejas' });
+	});
+
+	},
+		list: function(req, res){
+
+	var query = {};
+
+	Model.find(query, function(err, data){
+		if(err){
+			console.log('Erro : ', err);
+			msg = 'Erro: '+err;	
+		}else{
+			console.log('Listagem ', data);
+			msg= 'Listagem '+ data;
+		}
 		res.end(msg);
 	});
 
